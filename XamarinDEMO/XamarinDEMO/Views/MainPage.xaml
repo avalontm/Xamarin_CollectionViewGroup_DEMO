@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="XamarinDEMO.Views.MainPage">
-    
-    
+
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -19,33 +19,38 @@
                                 </Grid.RowDefinitions>
 
                                 <!-- Carousel View -->
-                                <CarouselView Grid.Row="0" Margin="5" ItemsSource="{Binding items}" IndicatorView="indicatorView" HeightRequest="120">
-                                <CarouselView.ItemTemplate>
-                                    <DataTemplate>
-                                        
-                                        <StackLayout>
-                                            <Frame HeightRequest="120">
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="*"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                    </Grid.RowDefinitions>
-                                                    
+                                <CarouselView Grid.Row="0" Margin="5" ItemsSource="{Binding items}" IndicatorView="indicatorView" HeightRequest="160">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <StackLayout>
+                                                <yummy:PancakeView HeightRequest="160" Margin="5,0,5,0" BackgroundColor="White" CornerRadius="10">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+
                                                         <Image Grid.Row="0" Grid.RowSpan="3" Source="{Binding image}" Aspect="Fill" />
-                                                    
-                                                        <Label Grid.Row="0" Margin="5,0,0,0" Text="{Binding title}" />
-                                                        <Label Grid.Row="2" Margin="5,0,0,0" Text="{Binding description}" />
-                                                </Grid>
-                                            </Frame>
-                                        </StackLayout>
-                                        
-                                    </DataTemplate>
-                                </CarouselView.ItemTemplate>
-                            </CarouselView>
+
+                                                        <yummy:PancakeView Grid.Row="0" Padding="5" BackgroundColor="Black" Opacity="0.75">
+                                                            <Label Margin="5,0,0,0" Text="{Binding title}" TextColor="White"/>
+                                                        </yummy:PancakeView>
+
+                                                        <yummy:PancakeView Grid.Row="2" Padding="5" BackgroundColor="Black" Opacity="0.75">
+                                                            <Label Margin="5,0,0,0" Text="{Binding description}" TextColor="White" />
+                                                        </yummy:PancakeView>
+                                                    </Grid>
+                                                </yummy:PancakeView>
+                                            </StackLayout>
+
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
 
                                 <!-- Indicator View -->
-                                <IndicatorView Grid.Row="1" Margin="2" x:Name="indicatorView" Count="{Binding items.Count}" MaximumVisible="6" SelectedIndicatorColor="Black" IndicatorColor="Gray" IndicatorSize="3" />
+                                <IndicatorView Grid.Row="1" Margin="2" x:Name="indicatorView" Count="{Binding items.Count}" MaximumVisible="6" SelectedIndicatorColor="Black" IndicatorColor="Gray" IndicatorSize="5" />
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
