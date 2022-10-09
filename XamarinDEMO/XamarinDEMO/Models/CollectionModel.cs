@@ -18,6 +18,7 @@ namespace XamarinDEMO.Models
 
     public class ItemModel
     {
+        public int id { set; get; }
         public string title { set; get; }
         public string description { set; get; }
         public ImageSource image { set; get; }
