@@ -7,7 +7,8 @@ namespace XamarinDEMO.Models
 {
     public class CollectionModel
     {
-       public List<ItemModel> items { get; set; }
+        public string header { set; get; }
+        public List<ItemModel> items { get; set; }
 
         public CollectionModel()
         {
