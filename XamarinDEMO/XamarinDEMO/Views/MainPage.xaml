@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:source="clr-namespace:XamarinDEMO.Sources"
              xmlns:dic="clr-namespace:XamarinDEMO.Dictionaries"
              x:Class="XamarinDEMO.Views.MainPage">
 
@@ -37,17 +38,16 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
 
-                                            <yummy:PancakeView HeightRequest="160" WidthRequest="{Binding id, Converter={StaticResource CardWidthScreenToConvert}}" Margin="5,0,5,0" BackgroundColor="White" CornerRadius="10">
-                                                    <Grid>
+                                            <!-- Plugin PancakeView (es un contenedor para darle contornos redondeados y otras cosas) -->
+                                            <yummy:PancakeView HeightRequest="160" WidthRequest="{x:Static source:ScreenManager.Width}" Margin="5,0,5,0" BackgroundColor="White" CornerRadius="10">
+                                                <Grid>
+                                                    <Image Grid.Row="0" Source="{Binding image}" Aspect="Fill" />
 
-                                                        <Image Grid.Row="0" Source="{Binding image}" Aspect="Fill" />
-
-                                                        <yummy:PancakeView Grid.Row="0" Padding="5" BackgroundColor="Black" Opacity="0.5">
-                                                            <Label Margin="5,0,0,0" Text="{Binding title}" TextColor="White" FontAttributes="Bold" FontSize="24" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                                        </yummy:PancakeView>
-
-                                                    </Grid>
-                                                </yummy:PancakeView>
+                                                    <yummy:PancakeView Grid.Row="0" Padding="5" BackgroundColor="Black" Opacity="0.5">
+                                                        <Label Margin="5,0,0,0" Text="{Binding title}" TextColor="White" FontAttributes="Bold" FontSize="24" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                                    </yummy:PancakeView>
+                                                </Grid>
+                                            </yummy:PancakeView>
 
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
