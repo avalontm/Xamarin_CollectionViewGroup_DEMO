@@ -22,11 +22,14 @@
                                 <Label Grid.Row="0" Margin="5" Text="{Binding header}" TextColor="Black" FontAttributes="Bold" FontSize="18"/>
                                 
                                 <!-- Carousel View -->
-                                <CarouselView Grid.Row="1" Margin="5" ItemsSource="{Binding items}" IndicatorView="indicatorView" HeightRequest="160">
-                                    <CarouselView.ItemTemplate>
+                                <CollectionView Grid.Row="1" Margin="5" ItemsSource="{Binding items}" HeightRequest="160" >
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="10">
+                                        </GridItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
                                         <DataTemplate>
 
-                                            <StackLayout>
                                                 <yummy:PancakeView HeightRequest="160" Margin="5,0,5,0" BackgroundColor="White" CornerRadius="10">
                                                     <Grid>
 
@@ -38,14 +41,11 @@
 
                                                     </Grid>
                                                 </yummy:PancakeView>
-                                            </StackLayout>
 
                                         </DataTemplate>
-                                    </CarouselView.ItemTemplate>
-                                </CarouselView>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
 
-                                <!-- Indicator View -->
-                                <IndicatorView Grid.Row="2" Margin="2" x:Name="indicatorView" Count="{Binding items.Count}" MaximumVisible="6" SelectedIndicatorColor="Black" IndicatorColor="Gray" IndicatorSize="5" />
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
