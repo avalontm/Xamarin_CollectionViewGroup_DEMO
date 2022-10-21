@@ -11,7 +11,7 @@ namespace XamarinDEMO
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new DemoSvgPage();
         }
 
         protected override void OnStart()
