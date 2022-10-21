@@ -51,14 +51,14 @@ namespace XamarinDEMO.CustomControl
             }
         }
 
-        public SVGCustom()
-        {
-
-        }
-
         protected override void OnParentSet()
         {
             base.OnParentSet();
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                onChangeColor(Color2);
+            };
+            GestureRecognizers.Add(tapGestureRecognizer);
             onChangeColor(Color1);
         }
 

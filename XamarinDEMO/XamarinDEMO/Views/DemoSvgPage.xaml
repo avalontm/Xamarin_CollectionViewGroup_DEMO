@@ -11,9 +11,9 @@
             File="heart.svg"
             WidthRequest="80"
             Color1="#4c9e41"
-            Color2="#f74848">
+            Color2="#f74848" >
             <ffsvg:SvgCachedImage.GestureRecognizers>
-                <TapGestureRecognizer Tapped="SVG_Tapped"/>
+                <TapGestureRecognizer Command="{Binding SVG_Command} "/>
             </ffsvg:SvgCachedImage.GestureRecognizers>
         </custom:SVGCustom>
     </ContentPage.Content>
